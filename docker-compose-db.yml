@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  rct_pg:
+    image: postgres:latest
+    container_name: kidtrip_pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: kidtrip
+      POSTGRES_USER: kidtrip
+      POSTGRES_PASSWORD: kidtrip
+    ports:
+      - 5434:5432
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    volumes:
+      - /var/lib/docker/volumes/hr_vol/_data
